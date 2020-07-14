@@ -11,7 +11,7 @@ export default [{
     hidden: false,
     children:[
       {path:'/cms/page/list',name:'页面列表',component: page_list,hidden:false},
-      {path:'/cms/page/excepList',name:'外观异常报表',component: excep_list,hidden:true},
+      {path:'/cms/page/excepList',name:'外观异常报表',component: excep_list,hidden:false},
       {path:'/cms/page/add',name:'新增列表',component: add_list,hidden:true},
       {path:'/cms/page/edit/:pageId',name:'编辑列表',component: edit_list,hidden:true},
       {path:'/cms/page/fileList',name:'文件列表',component: file_list,hidden:false},
