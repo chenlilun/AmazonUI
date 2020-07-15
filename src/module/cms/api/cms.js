@@ -1,7 +1,8 @@
 import http from './../../../base/api/public'
 import querystring from 'querystring'
 let sysConfig = require('@/../config/sysConfig')
-let apiUrl = process.env.NODE_ENV === 'production'?"http://192.168.0.108:8084":sysConfig.xcApiUrlPre;
+// let apiUrl = process.env.NODE_ENV === 'production'?"http://192.168.0.108:8084":sysConfig.xcApiUrlPre;
+let apiUrl = process.env.NODE_ENV === 'production'?"http://localhost:8084":sysConfig.xcApiUrlPre;
 // let apiUrl = process.env.NODE_ENV === 'production'?"http://47.114.169.54:8084":sysConfig.xcApiUrlPre;
 
 
@@ -22,7 +23,10 @@ export  const  exception_list =  params =>{
   // return http.requestPost(apiUrl+'/abc/exception/getException', params)
   return http.requestPost(apiUrl+'/abc/exception/getException', params)
 }
-
+export  const  board_list =  (a ,b) =>{
+  // return http.requestPost(apiUrl+'/abc/exception/getException', params)
+  return http.requestGet(apiUrl+'/exception/getBorad/'+a+'/'+b)
+}
 //定义新增表单方法
 export  const  pageAdd  = params =>{
   return http.requestPost(apiUrl+'/abc/cms/page/add',params)

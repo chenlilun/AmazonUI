@@ -4,8 +4,7 @@ import axios from 'axios'
 axios.defaults.withCredentials = true //跨域
 // axios.defaults.baseURL = 'http://192.168.0.108:8888'
 axios.defaults.baseURL = 'http://192.168.0.108:8084'
-// axios.defaults.baseURL = 'http://47.114.169.54:8084'
-// axios.defaults.baseURL = 'http://127.0.0.1:3001'
+axios.defaults.baseURL = 'http://127.0.0.1:8084'
 axios.defaults.timeout = 10000
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www=form-urlencoded'
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8'
