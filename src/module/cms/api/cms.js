@@ -1,8 +1,8 @@
 import http from './../../../base/api/public'
 import querystring from 'querystring'
 let sysConfig = require('@/../config/sysConfig')
-// let apiUrl = process.env.NODE_ENV === 'production'?"http://192.168.0.108:8084":sysConfig.xcApiUrlPre;
-let apiUrl = process.env.NODE_ENV === 'production'?"http://47.114.169.54:8084":sysConfig.xcApiUrlPre;
+// let apiUrl = process.env.NODE_ENV === 'production'?"http://47.114.169.54:8084":sysConfig.xcApiUrlPre;
+let apiUrl = process.env.NODE_ENV === 'production'?"http://127.0.0.1:8084":sysConfig.xcApiUrlPre;
 
 
 //定义方法 请求服务查询接口
