@@ -33,7 +33,7 @@
        <el-button type="info">信息按钮</el-button>
        <el-button type="warning">警告按钮</el-button>
        <el-button type="danger">危险按钮</el-button>-->
-    <el-table :data="list" highlight-current-row v-loading="listLoading" style="width: 100%;" height="950"   :row-class-name="tableRowClassName"
+    <el-table :data="list"  v-loading="listLoading" style="width: 100%;" height="950"   :row-class-name="tableRowClassName"
     >
       <el-row>
         <el-col :span="12">
@@ -359,6 +359,8 @@
             tableRowClassName({row, rowIndex}) {
                 if (rowIndex <= 5) {
                     return 'warning-row';
+                }else {
+                    return 'commom-row';
                 }
             } ,
         },
@@ -385,24 +387,26 @@
     }
 </script>
 
-<style lang="less" >
-.board{
+<style lang="less"  scoped>
+  /deep/ .board{
   &_fullscreen{
     background-color: #fff;
     &.isFullscreen{
       padding-left: 20px;
     }
  }
-  &_search{
+    /deep/ &_search{
     margin-top: 15px;
     /*background-color: #fff;*/
   }
 }
-.el-table .warning-row {
-  background: oldlace;
+  /deep/ .el-table .warning-row {
+  /*background: oldlace;*/
   font-size: 20px;
-  color: #c11c1b;
+  color: red;
   margin: 10px;
+  background-color: #DBE621;
+  font-weight: 500 ;
   animation: changeshadow 1s  ease-in  infinite ;
   /* 其它浏览器兼容性前缀 */
   -webkit-animation: changeshadow 1s linear infinite;
@@ -410,14 +414,23 @@
   -ms-animation: changeshadow 1s linear infinite;
   -o-animation: changeshadow 1s linear infinite;
 }
+  /deep/ .el-table .commom-row {
+  /*background: oldlace;*/
+  font-size: 20px;
+  color: white;
+  margin: 10px;
+  background-color: #82848a;
 
-.el-table .success-row {
+}
+
+
+  /deep/ .el-table .success-row {
   background: #f0f9eb;
 }
 
-.el-table th,tr {
-  background-color: #12ff27;
-  color: #4cc134;
+  /deep/ .el-table th,tr {
+  background-color: dodgerblue;
+  color: white;
   font-size: 20px;
 }
 @keyframes changeshadow {
