@@ -16,14 +16,18 @@ export default [{
       {path:'/cms/page/add',name:'新增列表',component: add_list,hidden:true},
       {path:'/cms/page/edit/:pageId',name:'编辑列表',component: edit_list,hidden:true},
       {path:'/cms/page/fileList',name:'文件列表',component: file_list,hidden:false},
-      {path:'/cms/page/board_list',name:'逸暻看板',component: board_list,hidden:false},
+      // {path:'/cms/page/board_list',name:'逸暻看板',component: board_list,hidden:false},
     ]
     // ,
     // redirect: '/home',
     // children: [
     //   {path: 'home', component: Home}
     // ]
-  }/*,
+  },
+
+  {path:'/cms/page/board_list',name:'逸暻看板',component: board_list,hidden:false},
+  /*,
+
   {
     path: '/login',
     component: Login,

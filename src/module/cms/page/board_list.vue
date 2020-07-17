@@ -365,6 +365,7 @@
             } ,
         },
         created() {
+            console.log(this.$route,'params')
             this.params.page = Number.parseInt(this.$route.query.page || 1)
             this.params.siteId = this.$route.query.siteId || ''
             this.siteLists = [{siteId: 'A', siteName: 'A车间'}, {siteId: 'B', siteName: 'B车间'}, {

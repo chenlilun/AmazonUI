@@ -7,14 +7,14 @@
         <el-menu :default-active="$route.path" class="el-menu-vertical-demo" @open="handleopen" @close="handleclose"
                  @select="handleselect"
                  unique-opened router v-show="!collapsed" background-color="#EFEFF4">
-          <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
-            <el-submenu :index="index+''" v-if="!item.leaf">
+          <template v-for="(item,index) in menus" v-if="!item.hidden">
+            <el-submenu :index="index+''" target="_blank" v-if="!item.leaf">
               <template slot="title"><i :class="item.iconCls"></i>{{item.name}}</template>
               <el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden">
                 {{child.name}}
               </el-menu-item>
             </el-submenu>
-            <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path"><i
+            <el-menu-item v-if="item.leaf&&item.children.length>0" target="_blank" :index="item.children[0].path"><i
               :class="item.iconCls"></i>{{item.children[0].name}}
             </el-menu-item>
           </template>
@@ -72,6 +72,7 @@
     },
     data() {
       return {
+          menus:JSON.parse(`[{"path":"/","component":{"components":{"PHead":{"methods":{},"staticRenderFns":[],"_compiled":true,"_scopeId":"data-v-1340bee1","beforeCreate":[null,null],"__file":"src\\\\base\\\\components\\\\head.vue","beforeDestroy":[null],"_Ctor":{},"inject":{}}},"methods":{},"staticRenderFns":[],"_compiled":true,"_scopeId":"data-v-4d72bda9","beforeCreate":[null,null],"__file":"src\\\\module\\\\home\\\\page\\\\home.vue","beforeDestroy":[null],"_Ctor":{},"inject":{}},"name":"报表首页","hidden":true},{"path":"/","component":{"components":{"PHead":{"methods":{},"staticRenderFns":[],"_compiled":true,"_scopeId":"data-v-1340bee1","beforeCreate":[null,null],"__file":"src\\\\base\\\\components\\\\head.vue","beforeDestroy":[null],"_Ctor":{},"inject":{}}},"methods":{},"staticRenderFns":[],"_compiled":true,"_scopeId":"data-v-4d72bda9","beforeCreate":[null,null],"__file":"src\\\\module\\\\home\\\\page\\\\home.vue","beforeDestroy":[null],"_Ctor":{},"inject":{}},"name":"报表","hidden":false,"children":[{"path":"/cms/page/list","name":"页面列表","component":{"methods":{},"staticRenderFns":[],"_compiled":true,"beforeCreate":[null,null],"__file":"src\\\\module\\\\cms\\\\page\\\\page_list.vue","beforeDestroy":[null]},"hidden":false},{"path":"/cms/page/excepList","name":"外观异常报表","component":{"filters":{},"methods":{},"staticRenderFns":[],"_compiled":true,"beforeCreate":[null,null],"__file":"src\\\\module\\\\cms\\\\page\\\\excep_list.vue","beforeDestroy":[null]},"hidden":false},{"path":"/cms/page/add","name":"新增列表","component":{"methods":{},"staticRenderFns":[],"_compiled":true,"beforeCreate":[null,null],"__file":"src\\\\module\\\\cms\\\\page\\\\page_add.vue","beforeDestroy":[null]},"hidden":true},{"path":"/cms/page/edit/:pageId","name":"编辑列表","component":{"methods":{},"staticRenderFns":[],"_compiled":true,"beforeCreate":[null,null],"__file":"src\\\\module\\\\cms\\\\page\\\\page_edit.vue","beforeDestroy":[null]},"hidden":true},{"path":"/cms/page/fileList","name":"文件列表","component":{"methods":{},"staticRenderFns":[],"_compiled":true,"beforeCreate":[null,null],"__file":"src\\\\module\\\\cms\\\\page\\\\file_list.vue","beforeDestroy":[null]},"hidden":false},{"path":"/cms/page/board_list","name":"逸暻看板","component":{"filters":{},"methods":{},"beforeDestroy":[null,null],"staticRenderFns":[],"_compiled":true,"_scopeId":"data-v-69031947","beforeCreate":[null,null],"__file":"src\\\\module\\\\cms\\\\page\\\\board_list.vue"},"hidden":false}]}]`),
         collapsed: false,
         sysUserName: '',
         sysUserAvatar: '/static/images/small.jpg',
@@ -109,7 +110,7 @@
 
     },
     created() {
-      console.log(this.$router.options.routes)
+      console.log(JSON.stringify(this.$router.options.routes))
     }
   }
 
